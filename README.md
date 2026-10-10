@@ -50,6 +50,4 @@ scripts/
 
 ## 说明
 
-- 基于 [cy-carousel-skill](https://github.com/chengyi-ai/cy-carousel-skill)（MIT）的渲染引擎，扩展了多渠道、多主题与视频模式。
-- 视频模式的方法思路借鉴 [anything2explainer](https://github.com/Vincentwei1021/anything2explainer)（代码绘帧、配音时间轴、量化 QC），实现为独立轻量代码，未使用其仓库内容。
 - MIT License.
