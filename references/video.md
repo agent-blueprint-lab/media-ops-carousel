@@ -6,7 +6,7 @@
 
 1. **出图**：先按 `douyin`（1080×1920）出图文版，`check2.py` 过。
 2. **口播文案**：写 `narration.json`，`[{"image": "01.png", "text": "口播…"}, …]`。每页一段，口语化、短句；**避开裸英文单字母**（"P""App"→"造假""应用"），数字用中文读法。见下"文案规范"。
-3. **合成**：`python3 scripts/video.py --pages <图目录> --narration narration.json --out 成片.mp4 --engine <cy-carousel 根>`。每页先 TTS 配音（默认调 `tts` 命令，`--tts-cmd` 可换），再 30fps 逐帧渲染，最后 ffmpeg 合成。
+3. **合成**：`python3 scripts/video.py --pages <图目录> --narration narration.json --out 成片.mp4 --engine <引擎根目录>`。每页先 TTS 配音（默认调 `tts` 命令，`--tts-cmd` 可换），再 30fps 逐帧渲染，最后 ffmpeg 合成。
 4. **质检**：
    - 抽帧看：字幕跟读变色是否正常、字幕条是否压住页面文字、页码/进度条是否在位；
    - 全片静音扫描：`ffmpeg -i 成片.mp4 -map 0:a -af silencedetect=noise=-40dB:d=2.5 -f null -`，有输出就说明有死区，回头查 TTS；

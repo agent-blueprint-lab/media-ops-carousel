@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
-"""render2.py — cy-carousel render.py 的多尺寸渲染入口。
+"""render2.py — 多尺寸渲染入口（以补丁方式扩展渲染引擎）。
 
 实现方式：运行时读取引擎 render.py 源码，打两处补丁后 exec：
   1. render() 签名加 height 参数；
   2. 去掉 width!=1440 的硬限制，H 改为 height（缺省则按 4:3）。
 补丁锚点命中失败会直接报错（引擎升级后按报错信息更新锚点）。
-引擎：MIT 协议，https://github.com/chengyi-ai/cy-carousel-skill
 """
 import argparse
 import sys
@@ -19,12 +18,12 @@ BODY_NEW = " W=width;H=(height or width*4//3);"
 
 
 def main():
-    a = argparse.ArgumentParser(description='多尺寸渲染（cy-carousel 引擎补丁入口）')
+    a = argparse.ArgumentParser(description='多尺寸渲染（渲染引擎补丁入口）')
     a.add_argument('script', type=Path)
     a.add_argument('--out', type=Path, required=True)
     a.add_argument('--width', type=int, default=1440)
     a.add_argument('--height', type=int, default=None)
-    a.add_argument('--engine', type=Path, required=True, help='cy-carousel 仓库根目录')
+    a.add_argument('--engine', type=Path, required=True, help='渲染引擎仓库根目录')
     a.add_argument('--assets-root', type=Path)
     v = a.parse_args()
 

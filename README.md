@@ -18,7 +18,7 @@
 - Python 3.10+，`pip install Pillow numpy PyMuPDF`
 - ffmpeg（视频模式）
 - TTS 命令行（视频模式，`--tts-cmd` 可换，默认 `tts`）
-- 渲染引擎：`git clone https://github.com/chengyi-ai/cy-carousel-skill.git engine`（MIT）
+- 渲染引擎：按 SKILL.md 安装步骤准备（`engine/` 目录）
 
 ## 用法
 
@@ -43,7 +43,7 @@ references/
   video.md          抖音视频模式规范
 scripts/
   layout.py         多尺寸画布＋主题＋水印＋通用原文纸条
-  render2.py        多尺寸渲染（cy-carousel 引擎补丁入口）
+  render2.py        多尺寸渲染（引擎补丁入口）
   check2.py         按渠道尺寸的硬红线检查
   video.py          图文转竖屏视频（配音＋字幕＋进度条）
 ```

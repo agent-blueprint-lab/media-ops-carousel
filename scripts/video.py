@@ -83,7 +83,7 @@ def main():
     a.add_argument('--pages', type=Path, required=True)
     a.add_argument('--narration', type=Path, required=True)
     a.add_argument('--out', type=Path, required=True)
-    a.add_argument('--engine', type=Path, required=True, help='cy-carousel 仓库根目录（取字体）')
+    a.add_argument('--engine', type=Path, required=True, help='渲染引擎仓库根目录（取字体）')
     a.add_argument('--tts-cmd', default=TTS_CMD,
                    help='TTS 命令（默认 tts，需支持: tts speak --language <code> --output <path> --text-stdin）。也可用 edge-tts 等自行封装。')
     a.add_argument('--workdir', type=Path, default=Path('video-work'))

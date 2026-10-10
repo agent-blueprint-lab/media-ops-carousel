@@ -103,12 +103,12 @@ def paper_strip(text, target_w=1440, font_size=46, keywords=(), pad_x=70, pad_y=
     不限 PDF——法条、判决、网页原文都可用。返回 PIL.Image（RGB）。"""
     paper = paper or _current_theme['paper']
     if font_path is None:
-        # 优先用 <skill>/engine 自带的 Noto Serif SC（git clone cy-carousel 后）
+        # 优先用 <skill>/engine 自带的 Noto Serif SC（按 SKILL.md 准备好 engine/ 后）
         cands = [HERE.parent / 'engine' / 'assets' / 'fonts' / 'NotoSerifSC[wght].ttf']
         font_path = next((c for c in cands if c.is_file()), None)
         if font_path is None:
             raise FileNotFoundError(
-                '找不到 NotoSerifSC 字体：请先按 SKILL.md 把 cy-carousel 克隆到 <skill>/engine，或显式传 font_path')
+                '找不到 NotoSerifSC 字体：请先按 SKILL.md 把渲染引擎克隆到 <skill>/engine，或显式传 font_path')
     font = ImageFont.truetype(str(font_path), font_size)
     probe = ImageDraw.Draw(Image.new('RGB', (10, 10)))
     max_w = target_w - pad_x * 2
